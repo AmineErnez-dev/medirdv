@@ -14,7 +14,9 @@ services:
       retries: 10
 
   backend:
-    build: ./backend
+    build:
+      context: ./backend
+      network: host
     ports:
       - "5000:5000"
     environment:
@@ -29,7 +31,9 @@ services:
     command: npm run dev
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      network: host
     ports:
       - "5173:5173"
     environment:
